@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>China Sourcing Expert | Sourcing, QC, Warehousing & Shipping</title>
+    <meta name="description" content="Professional China Sourcing Agent. We provide one-stop solutions for product sourcing, quality inspection, warehousing, and global shipping. Contact us for the latest Google Trends products.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // blue-900
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* 屏蔽顶部的谷歌框架 */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0 !important; }
+        
+        /* 屏蔽原生的谷歌图标 */
+        .goog-te-gadget img { display: none !important; }
+        
+        /* 屏蔽原生语言名字和突兀样式 */
+        .goog-te-gadget span { display: none !important; }
+        .goog-te-gadget { font-size: 0px !important; }
+        
+        /* 允许我们自己的容器显示 */
+        #google_translate_element { display: block !important; }
+        
+        /* 弹窗与悬浮按钮 */
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-active { opacity: 1; visibility: visible; }
+        .modal-inactive { opacity: 0; visibility: hidden; }
+        .float-btn { transition: transform 0.3s; }
+        .float-btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-bold text-2xl text-blue-900"><i class="fa-solid fa-earth-asia text-blue-600 mr-2"></i>GlobalSource</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                    <a href="#trends" class="text-gray-700 hover:text-blue-600 font-medium">Trends</a>
+                    <a href="#faq" class="text-gray-700 hover:text-blue-600 font-medium">FAQ</a>
+                    
+                    <div class="relative">
+                        <div id="google_translate_element" class="opacity-0 absolute"></div> <button id="langBtn" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold">
+                            <i class="fa-solid fa-globe text-blue-600"></i>
+                            <span id="currentLang">English</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,zh-CN,es,fr,ru,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langBtn = document.getElementById('langBtn');
+            const currentLang = document.getElementById('currentLang');
+            
+            langBtn.addEventListener('click', function() {
+                // 查找谷歌翻译生成的真实下拉框
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.dispatchEvent(new Event('change'));
+                    // 模拟点击打开选择器
+                    select.focus();
+                    select.click();
+                } else {
+                    alert('Translation plugin is loading, please wait a moment.');
+                }
+            });
+
+            // 当选择语言后，更新按钮上的文字
+            document.getElementById('google_translate_element').addEventListener('change', function() {
+                setTimeout(() => {
+                    const select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        currentLang.innerText = select.options[select.selectedIndex].text;
+                    }
+                }, 100);
+            });
+        });
+    </script>
+
+    </body>
+</html>
