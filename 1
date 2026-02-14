@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Sourcing Expert | One-Stop Supply Chain Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-active { opacity: 1; visibility: visible; }
+        .modal-inactive { opacity: 0; visibility: hidden; }
+        /* 阿拉伯语适配 */
+        body[dir="rtl"] .ml-2 { margin-right: 0.5rem; margin-left: 0; }
+        body[dir="rtl"] .mr-2 { margin-left: 0.5rem; margin-right: 0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800" dir="ltr">
+
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fa-solid fa-ship text-blue-600 text-2xl mr-2"></i>
+                <span class="font-bold text-2xl text-blue-900 tracking-tight">ChinaPartner</span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative inline-block">
+                    <i class="fa-solid fa-language absolute left-3 top-3 text-gray-400 pointer-events-none"></i>
+                    <select id="langSelect" onchange="updateLanguage(this.value)" class="pl-10 pr-4 py-2 bg-gray-100 border-none rounded-full text-sm font-semibold focus:ring-2 focus:ring-blue-500 appearance-none cursor-pointer">
+                        <option value="en">English</option>
+                        <option value="zh">简体中文</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="ru">Русский</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 px-4 bg-blue-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200" class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-5xl mx-auto text-center">
+            <h1 id="t-hero-title" class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Your Direct Gateway to China's Factories</h1>
+            <p id="t-hero-sub" class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">Sourcing, Inspection, Warehousing, and Global Shipping. We handle the hard work while you grow your brand.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/8615001838848" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl shadow-xl flex items-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i> WhatsApp Me
+                </a>
+                <button onclick="openModal()" id="t-btn-catalog" class="bg-white text-blue-900 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl shadow-xl">Get 2026 Trends Catalog</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 id="t-svc-title" class="text-3xl font-bold text-center mb-12">Comprehensive Supply Chain Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <i class="fa-solid fa-magnifying-glass text-blue-600 text-3xl mb-4"></i>
+                <h3 id="t-svc-1-h" class="text-xl font-bold mb-3">Professional Sourcing</h3>
+                <p id="t-svc-1-p" class="text-gray-600">Finding the top 10% manufacturers with the best prices and quality balance.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <i class="fa-solid fa-shield-check text-green-600 text-3xl mb-4"></i>
+                <h3 id="t-svc-2-h" class="text-xl font-bold mb-3">Quality Inspection</h3>
+                <p id="t-svc-2-p" class="text-gray-600">Strict on-site QC with detailed video and photo reports before you pay the balance.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <i class="fa-solid fa-truck-fast text-orange-600 text-3xl mb-4"></i>
+                <h3 id="t-svc-3-h" class="text-xl font-bold mb-3">Global Logistics</h3>
+                <p id="t-svc-3-p" class="text-gray-600">Door-to-door (DDP) shipping solutions via Sea, Air, or Railway to any country.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-100 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 id="t-faq-title" class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl">
+                    <h4 id="t-q1" class="font-bold text-blue-900 mb-2">How do you charge for your services?</h4>
+                    <p id="t-a1" class="text-gray-600">We offer a transparent service fee (3-7%) based on the order volume, with no hidden kickbacks from factories.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl">
+                    <h4 id="t-q2" class="font-bold text-blue-900 mb-2">Can you consolidate orders?</h4>
+                    <p id="t-a2" class="text-gray-600">Yes! We collect goods from different suppliers in our warehouse and ship them together to save your shipping costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 px-4 text-center">
+        <div class="mb-6 flex justify-center space-x-6">
+            <a href="#" class="text-2xl hover:text-blue-400"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-2xl hover:text-pink-400"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-2xl hover:text-blue-300"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="text-2xl hover:text-red-500"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p class="text-gray-400">WhatsApp: +86 150 0183 8848 | 24/7 Professional Support</p>
+    </footer>
+
+    <div id="catalogModal" class="modal modal-inactive fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <div class="text-center">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-file-pdf text-blue-600 text-2xl"></i>
+                </div>
+                <h3 id="t-modal-h" class="text-2xl font-bold mb-2">Get Trending Catalog</h3>
+                <p id="t-modal-p" class="text-gray-500 mb-6">Enter your email to receive the 2026 trending product list from China.</p>
+                <form onsubmit="event.preventDefault(); alert('Success! Please check your email.'); closeModal();">
+                    <input type="email" required placeholder="example@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <button id="t-modal-btn" type="submit" class="w-full bg-blue-900 text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition">Download Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const i18n = {
+            en: {
+                "t-hero-title": "Your Direct Gateway to China's Factories",
+                "t-hero-sub": "Sourcing, Inspection, Warehousing, and Global Shipping. We handle the hard work while you grow your brand.",
+                "t-btn-catalog": "Get 2026 Trends Catalog",
+                "t-svc-title": "Comprehensive Supply Chain Services",
+                "t-svc-1-h": "Professional Sourcing",
+                "t-svc-1-p": "Finding the top 10% manufacturers with the best prices and quality balance.",
+                "t-svc-2-h": "Quality Inspection",
+                "t-svc-2-p": "Strict on-site QC with detailed video and photo reports before you pay the balance.",
+                "t-svc-3-h": "Global Logistics",
+                "t-svc-3-p": "Door-to-door (DDP) shipping solutions via Sea, Air, or Railway to any country.",
+                "t-faq-title": "Frequently Asked Questions",
+                "t-q1": "How do you charge for your services?",
+                "t-a1": "We offer a transparent service fee (3-7%) based on the order volume, with no hidden kickbacks from factories.",
+                "t-q2": "Can you consolidate orders?",
+                "t-a2": "Yes! We collect goods from different suppliers in our warehouse and ship them together to save your shipping costs.",
+                "t-modal-h": "Get Trending Catalog",
+                "t-modal-p": "Enter your email to receive the 2026 trending product list from China.",
+                "t-modal-btn": "Download Now"
+            },
+            zh: {
+                "t-hero-title": "连接中国工厂的直接通道",
+                "t-hero-sub": "采购、质检、仓储及全球货运。我们为您处理繁琐流程，助力品牌成长。",
+                "t-btn-catalog": "获取2026热门目录",
+                "t-svc-title": "全方位供应链服务",
+                "t-svc-1-h": "专业采购",
+                "t-svc-1-p": "在价格与质量之间为您筛选前10%的优质制造商。",
+                "t-svc-2-h": "深度质检",
+                "t-svc-2-p": "严苛的现场品控，并在您支付尾款前提供详尽的视频和照片报告。",
+                "t-svc-3-h": "全球物流",
+                "t-svc-3-p": "提供海运、空运或铁路双清包税(DDP)到门服务，覆盖全球。",
+                "t-faq-title": "常见问题解答",
+                "t-q1": "你们的服务如何收费？",
+                "t-a1": "我们根据订单金额收取3-7%的透明服务费，绝不收受工厂回扣。",
+                "t-q2": "你们可以合并订单吗？",
+                "t-a2": "可以！我们在仓库收集不同供应商的货物并统一发运，为您节省运费。",
+                "t-modal-h": "获取热门目录",
+                "t-modal-p": "输入您的邮箱，立即获取2026年中国热门趋势产品清单。",
+                "t-modal-btn": "立即下载"
+            },
+            es: {
+                "t-hero-title": "Su puerta directa a las fábricas de China",
+                "t-hero-sub": "Sourcing, inspección, almacenamiento y envío global. Nos encargamos del trabajo duro mientras usted hace crecer su marca.",
+                "t-btn-catalog": "Obtener catálogo 2026",
+                "t-svc-title": "Servicios integrales de cadena de suministro",
+                "t-svc-1-h": "Búsqueda profesional",
+                "t-svc-1-p": "Encontrar el 10% de los mejores fabricantes con el mejor equilibrio entre precio y calidad.",
+                "t-svc-2-h": "Inspección de calidad",
+                "t-svc-2-p": "Control de calidad estricto in situ con informes detallados en vídeo y fotos.",
+                "t-svc-3-h": "Logística Global",
+                "t-svc-3-p": "Soluciones de envío puerta a puerta (DDP) por mar, aire o ferrocarril.",
+                "t-faq-title": "Preguntas frecuentes",
+                "t-q1": "¿Cómo cobran por sus servicios?",
+                "t-a1": "Ofrecemos una tarifa de servicio transparente (3-7%) basada en el volumen del pedido.",
+                "t-q2": "¿Pueden consolidar pedidos?",
+                "t-a2": "¡Sí! Recogemos mercancías de diferentes proveedores y las enviamos juntas.",
+                "t-modal-h": "Obtener catálogo",
+                "t-modal-p": "Ingrese su correo electrónico para recibir la lista de productos de tendencia 2026.",
+                "t-modal-btn": "Descargar ahora"
+            },
+            fr: {
+                "t-hero-title": "Votre accès direct aux usines chinoises",
+                "t-hero-sub": "Sourcing, inspection, entreposage et expédition mondiale. Nous gérons tout, vous développez votre marque.",
+                "t-btn-catalog": "Catalogue des tendances 2026",
+                "t-svc-title": "Services de chaîne d'approvisionnement",
+                "t-svc-1-h": "Sourcing Professionnel",
+                "t-svc-1-p": "Trouver les 10 % de meilleurs fabricants avec le meilleur rapport qualité-prix.",
+                "t-svc-2-h": "Inspection Qualité",
+                "t-svc-2-p": "Contrôle qualité strict sur site avec rapports vidéo et photo détaillés.",
+                "t-svc-3-h": "Logistique Mondiale",
+                "t-svc-3-p": "Solutions d'expédition porte-à-porte (DDP) par mer, air ou rail.",
+                "t-faq-title": "Questions Fréquentes",
+                "t-q1": "Quels sont vos tarifs ?",
+                "t-a1": "Frais de service transparents (3-7 %) basés sur le volume de la commande.",
+                "t-q2": "Consolidez-vous les commandes ?",
+                "t-a2": "Oui ! Nous regroupons vos marchandises de différents fournisseurs pour réduire les coûts.",
+                "t-modal-h": "Obtenir le catalogue",
+                "t-modal-p": "Entrez votre e-mail pour recevoir la liste des produits tendances 2026.",
+                "t-modal-btn": "Télécharger"
+            },
+            ru: {
+                "t-hero-title": "Ваш прямой путь к заводам Китая",
+                "t-hero-sub": "Поиск, инспекция, складирование и доставка. Мы берем работу на себя, пока вы развиваете бизнес.",
+                "t-btn-catalog": "Каталог трендов 2026",
+                "t-svc-title": "Комплексные услуги поставок",
+                "t-svc-1-h": "Профессиональный поиск",
+                "t-svc-1-p": "Поиск лучших 10% производителей с идеальным балансом цены и качества.",
+                "t-svc-2-h": "Контроль качества",
+                "t-svc-2-p": "Строгий контроль на месте с детальными видео и фото отчетами.",
+                "t-svc-3-h": "Глобальная логистика",
+                "t-svc-3-p": "Доставка «от двери до двери» (DDP) морем, авиа или ж/д в любую страну.",
+                "t-faq-title": "Часто задаваемые вопросы",
+                "t-q1": "Сколько стоят ваши услуги?",
+                "t-a1": "Прозрачная комиссия (3-7%) от объема заказа без скрытых платежей.",
+                "t-q2": "Вы консолидируете заказы?",
+                "t-a2": "Да! Мы собираем товары от разных поставщиков на складе и отправляем их вместе.",
+                "t-modal-h": "Получить каталог",
+                "t-modal-p": "Введите email для получения списка трендовых товаров 2026 года.",
+                "t-modal-btn": "Скачать"
+            },
+            ar: {
+                "t-hero-title": "بوابتك المباشرة للمصانع الصينية",
+                "t-hero-sub": "المصادر، الفحص، التخزين، والشحن العالمي. نحن نتولى العمل الشاق بينما تنمي تجارتك.",
+                "t-btn-catalog": "احصل على كتالوج 2026",
+                "t-svc-title": "خدمات سلسلة التوريد الشاملة",
+                "t-svc-1-h": "البحث عن المنتجات",
+                "t-svc-1-p": "العثور على أفضل 10٪ من المصنعين بأفضل الأسعار والجودة.",
+                "t-svc-2-h": "فحص الجودة",
+                "t-svc-2-p": "رقابة صارمة في الموقع مع تقارير فيديو وصور مفصلة قبل الشحن.",
+                "t-svc-3-h": "الخدمات اللوجستية",
+                "t-svc-3-p": "حلول الشحن من الباب إلى الباب (DDP) بحراً وجواً وبراً.",
+                "t-faq-title": "الأسئلة الشائعة",
+                "t-q1": "كيف يتم احتساب الرسوم؟",
+                "t-a1": "رسوم خدمة شفافة (3-7٪) بناءً على حجم الطلب.",
+                "t-q2": "هل يمكن تجميع الطلبات؟",
+                "t-a2": "نعم! نجمع البضائع من موردين مختلفين في مستودعنا ونشحنها معاً.",
+                "t-modal-h": "احصل على الكتالوج",
+                "t-modal-p": "أدخل بريدك الإلكتروني لتلقي قائمة المنتجات الأكثر مبيعاً لعام 2026.",
+                "t-modal-btn": "تحميل الآن"
+            }
+        };
+
+        function updateLanguage(lang) {
+            // 切换页面文字
+            const dict = i18n[lang];
+            for (let key in dict) {
+                const el = document.getElementById(key);
+                if (el) el.innerText = dict[key];
+            }
+            
+            // 切换阅读方向 (RTL for Arabic)
+            if (lang === 'ar') {
+                document.body.dir = "rtl";
+                document.getElementById('langSelect').parentElement.classList.add('rtl-style');
+            } else {
+                document.body.dir = "ltr";
+            }
+        }
+
+        function openModal() {
+            document.getElementById('catalogModal').classList.remove('modal-inactive');
+            document.getElementById('catalogModal').classList.add('modal-active');
+        }
+
+        function closeModal() {
+            document.getElementById('catalogModal').classList.remove('modal-active');
+            document.getElementById('catalogModal').classList.add('modal-inactive');
+        }
+
+        // 初始化默认语言为英文
+        window.onload = () => updateLanguage('en');
+    </script>
+</body>
+</html>
